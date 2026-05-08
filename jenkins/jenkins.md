@@ -22,6 +22,10 @@
 - Use the Groovy Syntax
 - Use Stages to breakdown 
 
+### There are two types of jenkinsfile: 
+1. Groovy
+2. Just regular script
+
 ### Required fields for Jenkinsfile: 
 ```
 pipeline {
