@@ -58,6 +58,17 @@ pipeline {
 ```
 
 ### The visualization: 
+1. Single pipeline flow
 ![alt text](image.png)
 
 This graph show the stages. Each stage will be a circle in here. 
+
+2. Parallel Stages: 
+![alt text](image-1.png)
+
+This graph show parallel stages. We can find the file correspond to this in `/Jenkinsfile.parallel`
+
+### Post Stage: 
+This is the actions that will run after the stages finish. For example, the Post stage can allow you to send notification to the different systems so the team will know. 
+
+### When expressions: 
