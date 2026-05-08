@@ -1,1 +1,49 @@
+  pipeline {                                                                                                                                                                                                       
+      agent any                                                                                                                                                                                                    
+                                                                                                                                                                                                                   
+      parameters {                                                                                                                                                                                                 
+          string(name: 'textToPrint', defaultValue: 'Hello, world!', description: 'Text to print in the print param stage')
+      }                                                                                                                                                                                                            
+                                                                                                                                                                                                                   
+      stages {                                                                                                                                                                                                     
+          stage("print param") {                                                                                                                                                                                   
+              steps {                                                                                                                                                                                              
+                  echo "${params.textToPrint}"
+              }
+          }
 
+          stage("build"){
+              steps {
+                  echo 'Building the application'                                                                                                                                                                  
+              }
+          }                                                                                                                                                                                                        
+                                                     
+          stage("test") {                                                                                                                                                                                        
+              parallel {
+                  stage("unit tests") {
+                      steps {
+                          echo 'Running unit tests'
+                      }                                                                                                                                                                                            
+                  }
+                  stage("integration tests") {                                                                                                                                                                     
+                      steps {                        
+                          echo 'Running integration tests'                                                                                                                                                       
+                      }
+                  }
+                  stage("lint") {
+                      steps {
+                          echo 'Running linter'                                                                                                                                                                    
+                      }
+                  }                                                                                                                                                                                                
+              }                                      
+          }                                                                                                                                                                                                      
+
+          stage("deploy"){
+              steps {
+                  echo 'Deploying the application'
+              }
+          }
+      }
+
+                                                                                                                                                                                                                   
+  }
