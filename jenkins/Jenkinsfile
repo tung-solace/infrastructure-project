@@ -14,7 +14,7 @@ pipeline {
         stage("test"){
             steps {
                 echo 'Testing the application'
-                echo 'testing version ${NEW_VERSION}'
+                echo "testing version ${NEW_VERSION}"
             }
         }
 
