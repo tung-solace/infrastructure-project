@@ -56,3 +56,8 @@ pipeline {
 }
 
 ```
+
+### The visualization: 
+![alt text](image.png)
+
+This graph show the stages. Each stage will be a circle in here. 
