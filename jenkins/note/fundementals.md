@@ -24,3 +24,18 @@ environment {
     NEW_VERSION = '1.3.0'
 }
 
+### Build rentention: 
+Build retention is Jenkins' policy for how long it keeps records of past builds before deleting them. Each build accumulates artifacts (archived files), console logs, metadata, e.t.c... on the Jenkins controller's disk. Without a retention policy, it grows forever. 
+
+Example: 
+```groovy
+
+options {
+    buildDiscarder(logRotator(numToKeepStr: '60', daysToKeepStr: '2'))
+}
+
+//Keep only the most 60 recent builds, and delete build older than 2 days
+```
+
+### Parameters
+The parameters block declares the inputs the user must supply when triggering the build. In the Jenkins UI, this is what generates the "Build with Parameters" form -  each entry becomes a field operatios fill in before the job run. 

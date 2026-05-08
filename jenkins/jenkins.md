@@ -72,3 +72,4 @@ This graph show parallel stages. We can find the file correspond to this in `/Je
 This is the actions that will run after the stages finish. For example, the Post stage can allow you to send notification to the different systems so the team will know. 
 
 ### When expressions: 
+Use in multibranch project
